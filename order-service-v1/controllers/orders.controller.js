@@ -5,7 +5,8 @@ const MODE = process.env.MODE || 'standalone';
 // In-memory storage (stateless per request, no global state)
 const orders = [
   { id: '1', customerId: '1', items: [{ productId: '1', quantity: 2, price: 29.99 }], total: 59.98, status: 'pending', createdAt: '2024-01-01' },
-  { id: '2', customerId: '2', items: [{ productId: '2', quantity: 1, price: 49.99 }], total: 49.99, status: 'completed', createdAt: '2024-01-02' }
+  { id: '2', customerId: '2', items: [{ productId: '2', quantity: 1, price: 49.99 }], total: 49.99, status: 'completed', createdAt: '2024-01-02' },
+  { id: '3', customerId: '1', items: [{ productId: '3', quantity: 1, price: 79.99 }], total: 79.99, status: 'pending', createdAt: '2024-01-03' }
 ];
 
 // Helper function to add metadata to response
