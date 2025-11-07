@@ -51,6 +51,16 @@ const getAllProducts = (req, res) => {
       filteredProducts = filteredProducts.filter(p => p.price <= maxPrice);
     }
     
+    // Search by name if provided
+    const search = req.query.search;
+    if (search) {
+      const searchLower = search.toLowerCase();
+      filteredProducts = filteredProducts.filter(p => 
+        p.name.toLowerCase().includes(searchLower) || 
+        p.description.toLowerCase().includes(searchLower)
+      );
+    }
+    
     // Pagination
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
