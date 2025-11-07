@@ -67,6 +67,12 @@ const createCustomer = (req, res) => {
       }));
     }
     
+    if (name.length < 2) {
+      return res.status(400).json(addMetadata({
+        error: 'Name must be at least 2 characters long'
+      }));
+    }
+    
     const newCustomer = {
       id: uuidv4(),
       name,
