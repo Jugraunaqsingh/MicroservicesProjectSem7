@@ -66,6 +66,15 @@ const createOrder = (req, res) => {
       }));
     }
     
+    // Validate each item has required fields
+    for (const item of items) {
+      if (!item.productId || !item.quantity || item.quantity <= 0) {
+        return res.status(400).json(addMetadata({
+          error: 'Each item must have productId and positive quantity'
+        }));
+      }
+    }
+    
     // Calculate total
     const total = items.reduce((sum, item) => {
       return sum + (item.price * item.quantity);
