@@ -39,6 +39,9 @@ const getAllOrders = (req, res) => {
       filteredOrders = filteredOrders.filter(o => o.customerId === customerId);
     }
     
+    // Sort by createdAt (newest first) by default
+    filteredOrders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    
     // Pagination
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
