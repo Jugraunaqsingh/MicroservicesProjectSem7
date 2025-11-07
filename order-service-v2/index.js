@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const orderRoutes = require('./routes/orders.routes');
+const requestLogger = require('./middleware/requestLogger');
 
 const app = express();
 const PORT = process.env.PORT || 4002;
@@ -9,6 +10,7 @@ const MODE = process.env.MODE || 'standalone';
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(requestLogger);
 
 // Mount version-specific routes
 app.use('/v2', orderRoutes);
