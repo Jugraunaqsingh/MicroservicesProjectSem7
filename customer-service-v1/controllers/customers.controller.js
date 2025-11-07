@@ -6,7 +6,8 @@ const MODE = process.env.MODE || 'standalone';
 // In production, this would be a database
 const customers = [
   { id: '1', name: 'John Doe', email: 'john@example.com', phone: '123-456-7890', createdAt: '2024-01-01' },
-  { id: '2', name: 'Jane Smith', email: 'jane@example.com', phone: '123-456-7891', createdAt: '2024-01-02' }
+  { id: '2', name: 'Jane Smith', email: 'jane@example.com', phone: '123-456-7891', createdAt: '2024-01-02' },
+  { id: '3', name: 'Bob Johnson', email: 'bob@example.com', phone: '123-456-7892', createdAt: '2024-01-03' }
 ];
 
 // Helper function to add metadata to response
