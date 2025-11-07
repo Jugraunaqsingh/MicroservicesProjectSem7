@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const productRoutes = require('./routes/products.routes');
 const requestLogger = require('./middleware/requestLogger');
+const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -24,6 +25,9 @@ app.get('/health', (req, res) => {
     service: 'product-service'
   });
 });
+
+// Error handler middleware (must be last)
+app.use(errorHandler);
 
 // Start server
 app.listen(PORT, () => {
