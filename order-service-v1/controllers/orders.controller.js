@@ -76,8 +76,11 @@ const createOrder = (req, res) => {
       }
     }
     
-    // Calculate total
+    // Calculate total with validation
     const total = items.reduce((sum, item) => {
+      if (!item.price || item.price < 0) {
+        throw new Error('Invalid price in item');
+      }
       return sum + (item.price * item.quantity);
     }, 0);
     
