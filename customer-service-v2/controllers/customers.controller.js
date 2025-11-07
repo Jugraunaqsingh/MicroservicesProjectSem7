@@ -44,6 +44,19 @@ const getAllCustomers = (req, res) => {
       );
     }
     
+    // Validate pagination parameters
+    if (page < 1) {
+      return res.status(400).json(addMetadata({
+        error: 'Page number must be at least 1'
+      }));
+    }
+    
+    if (limit < 1 || limit > 100) {
+      return res.status(400).json(addMetadata({
+        error: 'Limit must be between 1 and 100'
+      }));
+    }
+    
     // Pagination
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
