@@ -6,7 +6,8 @@ const MODE = process.env.MODE || 'standalone';
 const products = [
   { id: '1', name: 'Laptop', description: 'High-performance laptop', price: 999.99, stock: 50, category: 'Electronics', createdAt: '2024-01-01' },
   { id: '2', name: 'Mouse', description: 'Wireless mouse', price: 29.99, stock: 100, category: 'Electronics', createdAt: '2024-01-02' },
-  { id: '3', name: 'Keyboard', description: 'Mechanical keyboard', price: 79.99, stock: 75, category: 'Electronics', createdAt: '2024-01-03' }
+  { id: '3', name: 'Keyboard', description: 'Mechanical keyboard', price: 79.99, stock: 75, category: 'Electronics', createdAt: '2024-01-03' },
+  { id: '4', name: 'Monitor', description: '27-inch 4K monitor', price: 299.99, stock: 30, category: 'Electronics', createdAt: '2024-01-04' }
 ];
 
 // Helper function to add metadata to response
