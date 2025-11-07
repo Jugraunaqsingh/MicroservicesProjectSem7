@@ -74,6 +74,12 @@ const createProduct = (req, res) => {
       }));
     }
     
+    if (price > 1000000) {
+      return res.status(400).json(addMetadata({
+        error: 'Price exceeds maximum allowed value'
+      }));
+    }
+    
     const newProduct = {
       id: uuidv4(),
       name,
