@@ -26,12 +26,22 @@ const getAllCustomers = (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const status = req.query.status;
+    const search = req.query.search;
     
     let filteredCustomers = customers;
     
     // Filter by status if provided
     if (status) {
-      filteredCustomers = customers.filter(c => c.status === status);
+      filteredCustomers = filteredCustomers.filter(c => c.status === status);
+    }
+    
+    // Search by name or email if provided
+    if (search) {
+      const searchLower = search.toLowerCase();
+      filteredCustomers = filteredCustomers.filter(c => 
+        c.name.toLowerCase().includes(searchLower) || 
+        c.email.toLowerCase().includes(searchLower)
+      );
     }
     
     // Pagination
